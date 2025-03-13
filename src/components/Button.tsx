@@ -1,5 +1,6 @@
 import React from "react";
-import { cn } from "../utils/cn";
+import { clsx } from "clsx"
+import { twMerge } from "tailwind-merge"
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "default" | "ghost" | "outline";
@@ -27,12 +28,12 @@ export function Button({
 
   return (
     <button
-      className={cn(
-        "rounded-md font-medium transition-colors duration-200 focus:outline-none",
+      className={twMerge(clsx(
+        "rounded-md font-medium transition-colors duration-200 focus:outline-none cursor-pointer",
         variantClasses[variant],
         sizeClasses[size],
         className
-      )}
+      ))}
       {...props}
     >
       {children}
